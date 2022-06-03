@@ -1,10 +1,14 @@
-#Pixel Launcher M
+# Pixel Launcher M
 
-###Gori w/ #TeamFiles™
+### by Gori w/ #TeamFiles™
 
-<a href="https://github.com/GoriLovesYou/PixelLauncherM/releases"><img src="https://img.shields.io/badge/Download (Magisk)-not quite yet...-brightgreen.svg" width="200"></a>
+<a href="https://github.com/GoriLovesYou/PixelLauncherM/releases"><img src="https://img.shields.io/badge/Download (Magisk)-not quite yet...-red.svg" height="25"></a>
+<a href="https://github.com/GoriLovesYou/PixelLauncherM/releases"><img src="https://img.shields.io/badge/Download (Recovery)-not quite yet...-red.svg" height="25"></a>
+<a href="https://github.com/GoriLovesYou/PixelLauncherM/releases"><img src="https://img.shields.io/badge/Download (APK)-not quite yet...-red.svg" height="25"></a>
 
-<a href="https://t.me/PixelLauncherM"><img src="https://img.shields.io/badge/Telegram-@PixelLauncherM-2AABEE.svg"></a>
+<a href="https://github.com/GoriLovesYou/PixelLauncherM/releases"><img src="https://img.shields.io/badge/Download the latest test build (Magisk)-not quite yet...-red.svg" height="25"></a>
+
+<a href="https://t.me/PixelLauncherM"><img src="https://img.shields.io/badge/Telegram-@PixelLauncherM-2AABEE.svg" height="25"></a>
 
 Pixel Launcher M is in active development. Join us on Telegram to help test it!
 
