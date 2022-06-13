@@ -1,4 +1,4 @@
-##### Requirements
+#### Requirements
 
 PLM: Android version 12.0, 12.1, or 13
 PLM Classic: Android version 11, 12.0, 12.1, or 13
@@ -7,7 +7,7 @@ Root with Magisk version 20.4+ required, 24.3+ recommended
 -OR-
 A capable recovery
 
-##### Instructions
+#### Instructions
 
 It is recommended that you remove all launchers as well as Magisk and Xposed modules that
 interact with launchers from your device, leaving only the default system launcher.
@@ -22,7 +22,7 @@ Update all your apps, especially Google apps.
 
 Reboot your device.
 
-##### For Magisk installation:
+#### For Magisk installation:
 
 Simply download the .zip and install it from within Magisk.
 PLM will load a Helper GUI to make installation selections.
@@ -30,11 +30,11 @@ Classic will simply install and reboot.
 
 When your phone reboots, you should be in PLM, and you're good to go!
 
-##### For Recovery installation:
+#### For Recovery installation:
 
 INSTRUCTIONS COMING SOON, PLEASE CHECK BACK LATER
 
-##### Still need help?
+#### Still need help?
 
 If PLM is crashing repeatedly:
 
