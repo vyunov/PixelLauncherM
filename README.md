@@ -1,3 +1,5 @@
+![Pixel Launcher M](/Images/banner.png)
+
 # Pixel Launcher M
 
 #### by Gori w/ #TeamFiles™
