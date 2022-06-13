@@ -1,11 +1,11 @@
-##### Pixel Launcher M includes the following:
+#### Pixel Launcher M includes the following:
 
 All features of Pixel Launcher M are optional, and I strive to keep it that way.
 Either during installation or within the settings, everything can be adjusted to your liking.
 
 MORE INFO COMING SOON
 
-##### Pixel Launcher M Classic includes the following:
+#### Pixel Launcher M Classic includes the following:
 
 Classic is largely meant to be Google's original Pixel Launcher, adapted to work with more devices.
 
@@ -19,6 +19,6 @@ Classic is largely meant to be Google's original Pixel Launcher, adapted to work
 
 - Classic installs some extra files that Pixel Launcher is dependent on for basic functioning.
 
-##### Planned upcoming features (my long to do list...):
+#### Planned upcoming features (my long to do list...):
 
 COMING SOON
