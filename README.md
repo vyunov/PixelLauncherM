@@ -4,7 +4,7 @@
 
 <a href="https://t.me/PixelLauncherM"><img src="https://img.shields.io/badge/Pixel Launcher M Telegram Channel-@PixelLauncherM-2AABEE.svg" height="20"></a>
 
-<a href="https://github.com/GoriLovesYou/PixelLauncherM/releases"><img src="https://img.shields.io/badge/Download Pixel Launcher Classic (Magisk Module)-not quite yet...-red.svg" height="20"></a>
+<a href="https://github.com/GoriLovesYou/PixelLauncherM/releases/download/Classic/Pixel.Launcher.M.Classic.v0.1.0.220613.Magisk.zip"><img src="https://img.shields.io/badge/Download Pixel Launcher Classic (Magisk Module)-v0.1.0-bright green.svg" height="20"></a>
 
 Pixel Launcher M is in active development. Join us on Telegram to help test it!
 
