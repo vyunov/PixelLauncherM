@@ -18,6 +18,20 @@ Pixel Launcher M is a replacement for your default system launcher. It aims to p
 
 ### Changelog
 
+#### v1.2.0
+
+- Removed a bunch of permissions that weren't working correctly.
+
+- At A Glance v9.2 is included.
+
+- Pixel Launcher Mods app is included.
+
+- Markup by Google is included.
+
+- ASI is now included, as was also part of At A Glance Enhancer's scripting.
+
+- Latest Monet Icons included.
+
 #### v1.1.0
 
 - Fixes related to the app drawer search bar coloring. Again.

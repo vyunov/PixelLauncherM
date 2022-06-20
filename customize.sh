@@ -173,17 +173,26 @@ echo "moved files to /sdcard/PLM" >> $logfile
 
 print "   -------------------------50%------------------------"
 
-db_edit com.google.android.platform.device_personalization_services boolVal 1 "Echo__search_enable_app_search_tips" "Echo__search_enable_appsearch_tips_ranking_improvement" "Echo__search_enable_mdp_play_results" "Echo__search_enable_search_in_app_icon" "Echo__search_enable_static_shortcuts" "Echo__search_enable_superpacks_play_results" "Echo__search_enable_app_fetcher_v2" "Echo__search_enable_assistant_quick_phrases_settings" "Echo__smartspace_enable_battery_notification_parser" "Overview__enable_lens_r_overview_long_press" "Overview__enable_lens_r_overview_select_mode" "Overview__enable_lens_r_overview_translate_action" "Echo__smartspace_enable_doorbell" "Echo__smartspace_enable_earthquake_alert_predictor" "Echo__smartspace_enable_echo_settings" "Echo__smartspace_enable_light_predictor" "Echo__smartspace_enable_paired_device_predictor" "Echo__smartspace_enable_safety_check_predictor" "Echo__smartspace_enable_echo_unified_settings" "Echo__smartspace_enable_dark_launch_outlook_events" "Echo__smartspace_enable_step_predictor" "Echo__smartspace_enable_nap" "Echo__smartspace_enable_paired_device_connections" "Echo__smartspace_dedupe_fast_pair_notification" "Echo__smartspace_enable_nudge" "Echo__smartspace_enable_package_delivery" "Echo__smartspace_enable_outlook_events"
+sqlite "$gms" "DELETE FROM FlagOverrides WHERE packageName='com.google.android.platform.device_personalization_services'"
+db_edit "com.google.android.platform.device_personalization_services" "boolVal" "1" "Echo__smartspace_enable_battery_notification_parser" "Echo__smartspace_enable_doorbell" "Echo__smartspace_enable_earthquake_alert_predictor" "Echo__smartspace_enable_echo_settings" "Echo__smartspace_enable_light_predictor" "Echo__smartspace_enable_paired_device_predictor" "Echo__smartspace_enable_safety_check_predictor" "Echo__smartspace_enable_echo_unified_settings" "Echo__smartspace_enable_dark_launch_outlook_events" "Echo__smartspace_enable_step_predictor" "Echo__smartspace_enable_nap" "Echo__smartspace_enable_paired_device_connections" "Echo__smartspace_dedupe_fast_pair_notification" "Echo__smartspace_enable_nudge" "Echo__smartspace_enable_package_delivery" "Echo__smartspace_enable_outlook_events" "Echo__smartspace_gaia_twiddler" "Echo__smartspace_enable_eta_lyft" "Echo__smartspace_enable_sensitive_notification_twiddler"
+db_edit "com.google.android.platform.launcher" "boolVal" "ENABLE_SMARTSPACE_ENHANCED"
 
-echo "db finished block 1" >> $logfile
+echo "aagenhancer db edits done" >> $logfile
 
-db_edit com.google.android.platform.device_personalization_services boolVal 0 "SmartSelect__enable_smart_select_locked_bootloader_check"
+touch "$MODPATH/system/product/priv-app/DevicePersonalizationPrebuiltPixel2021/.replace"
+touch "$MODPATH/system/product/priv-app/DeviceIntelligenceNetworkPrebuilt/.replace"
 
-echo "db finished block 2" >> $logfile
+echo "aagenhancer replace files done" >> $logfile
 
-db_edit com.google.android.platform.launcher boolVal 1 "ENABLE_SMARTSPACE_ENHANCED" "ENABLE_WIDGETS_PICKER_AIAI_SEARCH"
+[[ -z "$(dumpsys package com.google.android.as | grep versionName | grep pixel6)" ]] && rm -rf /data/app/*/*com.google.android.as*
 
-echo "db finished block 3" >> $logfile
+cp -f "$MODPATH/system/product/priv-app/DevicePersonalizationPrebuiltPixel2021/DevicePersonalizationPrebuiltPixel2021.apk" "/data/local/tmp"
+chmod 0777 "/data/local/tmp/DevicePersonalizationPrebuiltPixel2021.apk"
+pm install "/data/local/tmp/DevicePersonalizationPrebuiltPixel2021.apk" &>/dev/null
+
+echo "aagenhancer install asi done" >> $logfile
+
+echo "finished aagenhancer" >> $logfile
 
 print "   -------------------------75%------------------------"
 
