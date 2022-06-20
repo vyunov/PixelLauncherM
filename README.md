@@ -1,6 +1,6 @@
-#Pixel Launcher M
+# Pixel Launcher M
 
-###by #TeamFiles™
+### by #TeamFiles™
 
 This README.md is best viewed on GitHub. Please visit GitHub for full and up to date details:
 
@@ -12,13 +12,13 @@ https://github.com/TeamFiles/PixelLauncherM
 
 <a href="https://t.me/PixelLauncherM"><img src="https://img.shields.io/badge/Pixel Launcher M Telegram-@PixelLauncherM-2AABEE.svg" height="20"></a>
 
-###About
+### About
 
 Pixel Launcher M is a replacement for your default system launcher. It aims to provide all the features from Pixel Launcher to more users, and add more features along the way. We're working hard to bring this to a more stable state and fix some issues. Join us on Telegram to follow the progress!
 
-###Changelog
+### Changelog
 
-####v1.1.0
+#### v1.1.0
 
 - Fixes related to the app drawer search bar coloring. Again.
 
@@ -30,11 +30,11 @@ Pixel Launcher M is a replacement for your default system launcher. It aims to p
 
 - Tried to fix installation on A13, which wasn't really working right.
 
-####v1.0.0
+#### v1.0.0
 
 - Release
 
-###Known Issues
+### Known Issues
 
 - Tapping on the weather in the smartspace doesn't do anything.
 
@@ -44,7 +44,7 @@ Pixel Launcher M is a replacement for your default system launcher. It aims to p
 
 - Grid options that weren't available originally display strangely sometimes.
 
-###Installation
+### Installation
 
 #### Requirements
 
@@ -87,7 +87,7 @@ If your phone bootloops:
 
 - Please contact me and provide a report.
 
-###Credits
+### Credits
 
 Names below are Telegram account names if they have an @,
 or they are GitHub account names. Currently, only my real life name is provided.
