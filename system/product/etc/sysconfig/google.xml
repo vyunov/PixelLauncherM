@@ -113,4 +113,16 @@
 
     <!-- Whitelist of packages that eligible for rollback -->
     <rollback-whitelisted-app package="com.android.vending" />
+    
+    <allow-association target="com.google.android.as" allowed="com.google.android.apps.nexuslauncher" />
+    <allow-association target="com.google.android.as.oss" allowed="com.google.android.apps.nexuslauncher" />  
+    
+    <app-data-isolation-whitelisted-app package="com.google.android.as" />
+    <app-data-isolation-whitelisted-app package="com.google.android.as.oss" />
+    <app-data-isolation-whitelisted-app package="com.google.android.apps.nexuslauncher" />
+    <app-data-isolation-whitelisted-app package="com.google.android.googlequicksearchbox" /> 
+    
+    <allow-in-power-save package="com.google.android.app.nexuslauncher" />
+    <allow-in-data-usage-save package="com.google.android.apps.nexuslauncher" /> 
+    
 </config>

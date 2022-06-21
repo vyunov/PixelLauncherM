@@ -118,5 +118,64 @@
         <permission name="android.permission.RECORD_AUDIO" fixed="false"/>
     </exception>
 
+    <exception package="com.google.android.apps.nexuslauncher">
+        <permission name="android.permission.BIND_APPWIDGET" fixed="true"/>
+        <permission name="android.permission.CONTROL_REMOTE_APP_TRANSITION_ANIMATIONS" fixed="true"/>
+        <permission name="android.permission.PACKAGE_USAGE_STATS" fixed="true"/>
+        <permission name="android.permission.WRITE_SECURE_SETTINGS" fixed="true"/>
+        <permission name="android.permission.STOP_APP_SWITCHES" fixed="true"/>
+        <permission name="android.permission.START_TASKS_FROM_RECENTS" fixed="true"/>
+        <permission name="android.permission.STATUS_BAR" fixed="true"/>
+        <permission name="android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS" fixed="true"/>
+        <permission name="android.permission.REGISTER_STATS_PULL_ATOM" fixed="true"/>
+		<permission name="android.permission.VIEW_INSTANT_APPS" fixed="true"/>
+		<permission name="android.permission.GET_PEOPLE_TILE_PREVIEW" fixed="true"/>
+		<permission name="android.permission.GET_TOP_ACTIVITY_INFO" fixed="true"/>
+		<permission name="android.permission.VIBRATE" fixed="true"/>
+		<permission name="android.permission.QUERY_ALL_PACKAGES" fixed="true"/>
+		<permission name="android.permission.REMOVE_TASKS" fixed="true"/>
+		<permission name="android.permission.MANAGE_ACTIVITY_TASKS" fixed="true"/>
+		<permission name="android.permission.SET_ORIENTATION" fixed="true"/>
+		<permission name="android.permission.READ_FRAME_BUFFER" fixed="true"/>
+		<permission name="android.permission.MANAGE_ACCESSIBILITY" fixed="true"/>
+		<permission name="android.permission.MONITOR_INPUT" fixed="true"/>
+		<permission name="android.permission.ALLOW_SLIPPERY_TOUCHES" fixed="true"/>
+		<permission name="android.permission.SYSTEM_APPLICATION_OVERLAY" fixed="true"/>
+		<permission name="android.permission.CALL_PHONE" fixed="true"/>
+		<permission name="android.permission.SET_WALLPAPER" fixed="true"/>
+		<permission name="android.permission.SET_WALLPAPER_HINTS" fixed="true"/>
+		<permission name="android.permission.READ_EXTERNAL_STORAGE" fixed="true"/>
+		<permission name="android.permission.RECEIVE_BOOT_COMPLETED" fixed="true"/>
+		<permission name="android.permission.REQUEST_DELETE_PACKAGES" fixed="true"/>
+		<permission name="android.permission.READ_DEVICE_CONFIG" fixed="true"/>
+		<permission name="android.permission.ROTATE_SURFACE_FLINGER" fixed="true"/>
+		<permission name="android.permission.DEVICE_POWER" fixed="true"/>
+		<permission name="android.permission.HIGH_SAMPLING_RATE_SENSORS" fixed="true"/>
+		<permission name="android.permission.INTERACT_ACROSS_USERS_FULL" fixed="true"/>
+		<permission name="com.google.android.apps.nexuslauncher.permission.QSB" fixed="true"/>
+		<permission name="com.google.android.launcher.permission.READ_SETTINGS" fixed="true"/>
+		<permission name="com.google.android.apps.miphone.aiai.matchmaker.overview.service.BIND_SERVICE" fixed="true"/>
+		<permission name="com.google.android.as.allapps.SUGGESTION_CONSUMER" fixed="true"/>
+		<permission name="com.google.android.apps.nexuslauncher.permission.HOTSEAT_EDU" fixed="true"/>
+		<permission name="android.permission.READ_PHONE_STATE" fixed="true"/>
+		<permission name="android.permission.READ_PRIVILEGED_PHONE_STATE" fixed="true"/>
+		<permission name="android.permission.BIND_CARRIER_SERVICES" fixed="true"/>
+		<permission name="android.permission.BROADCAST_STICKY" fixed="true"/>
+		<permission name="android.permission.BROADCAST_WAP_PUSH" fixed="true"/>
+		<permission name="android.permission.FOREGROUND_SERVICE" fixed="true"/>
+		<permission name="android.permission.GET_ACCOUNTS" fixed="true"/>
+		<permission name="android.permission.GET_ACCOUNTS_PRIVILEGED" fixed="true"/>
+		<permission name="android.permission.INTERACT_ACROSS_PROFILES" fixed="true"/>
+		<permission name="android.permission.MANAGE_EXTERNAL_STORAGE" fixed="true"/>
+		<permission name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" fixed="true"/>
+		<permission name="android.permission.SYSTEM_ALERT_WINDOW" fixed="true"/>
+		<permission name="android.permission.WRITE_GSERVICES" fixed="true"/>
+		<permission name="android.permission.INTERNAL_SYSTEM_WINDOW" fixed="true"/>
+        <permission name="android.permission.INTENT_FILTER_VERIFICATION_AGENT" fixed="true"/>
+        <permission name="android.permission.DOMAIN_VERIFICATION_AGENT" fixed="true"/>
+        <permission name="android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS" fixed="true"/>
+        <permission name="android.permission.ACTIVITY_EMBEDDING" fixed="true"/>
+    </exception>
+
 </exceptions>
 

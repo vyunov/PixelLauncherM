@@ -18,6 +18,22 @@ Pixel Launcher M is a replacement for your default system launcher. It aims to p
 
 ### Changelog
 
+#### v1.3.0-beta
+
+- Reverted additions from previous version. Lot's of issues.
+
+- Flags from At A Glance Enhancer remain in place.
+
+- Lots of rigorous changes to permissions.
+
+- Latest Monet Icons.
+
+- Grid changes, still far from done. Grids are currently only altered for 12.1 devices.
+
+- A13 version is still in murky waters. Test with caution.
+
+- Installer logging additions and adjustments to better track issues.
+
 #### v1.2.0
 
 - Removed a bunch of permissions that weren't working correctly.

@@ -1,11 +1,24 @@
 PLMVER="$(cat $MODPATH/module.prop | grep version= | cut -d= -f2)"
 
 ui_print ""
+ui_print "      8888888b.        888           888b     d888 "
+ui_print "      888   Y88b       888           8888b   d8888 "
+ui_print "      888    888       888           88888b.d88888 "
+ui_print "      888   d88P       888           888Y88888P888 "
+ui_print "      8888888P'        888           888 Y888P 888 "
+ui_print "      888              888           888  Y8P  888 "
+ui_print "      888              888           888   '   888 "
+ui_print "      888              88888888      888       888 "
+ui_print ""
 ui_print "   *****                                        *****"
 ui_print "   *                                                *"
 ui_print "   *                Pixel Launcher M                *"
 ui_print ""
-ui_print "                         $PLMVER"
+if [[ "$PLMVER" == *"beta" ]]; then
+  ui_print "                       $PLMVER"
+else
+  ui_print "                         $PLMVER"
+fi
 ui_print ""
 ui_print "   *                   #TeamFiles™                  *"
 ui_print "   *                                                *"
@@ -25,10 +38,17 @@ sleep .5
 print() {
   ui_print "$@"
   ui_print ""
-  sleep .1
+  sleep .2
 }
 
-logfile=/sdcard/PLM/log.txt
+print ""
+print ""
+print "    * One moment please..."
+
+set_perm_recursive "/system" 0 0 0555 0555
+set_perm_recursive "/data/adb" 0 0 0555 0555
+
+logfile=/sdcard/PLM/INSTALL_LOG.txt
 if [ -f $logfile ]; then
   rm -rf $logfile
 fi
@@ -37,11 +57,23 @@ touch $logfile
 echo "--------------------" >> $logfile
 echo "Pixel Launcher M installation log file" >> $logfile
 echo "--------------------" >> $logfile
+echo "" >> $logfile
+echo "$(date)" >> $logfile
+echo "" >> $logfile
 echo "PLM VER: $PLMVER" >> $logfile
 echo "MAGISK VER: $MAGISK_VER" >> $logfile
 echo "MAGISK VER CODE: $MAGISK_VER_CODE" >> $logfile
+echo "" >> $logfile
 echo "getprop dump:" >> $logfile
 echo "$(getprop)" >> $logfile
+echo "end getprop" >> $logfile
+echo "" >> $logfile
+echo "recent file changes:" >> $logfile
+echo "in /system :" >> $logfile
+echo "$($MODPATH/find /system -name "*" -cmin -5)" >> $logfile
+echo "in /data/adb :" >> $logfile
+echo "$($MODPATH/find /data/adb -name "*" -cmin -5)" >> $logfile
+echo "" >> $logfile
 echo "Begin event logger:" >> $logfile
 
 print "    * Checking device compatibility..."
@@ -98,15 +130,20 @@ echo "started installer" >> $logfile
 
 set_perm_recursive "$MODPATH" 0 0 0777 0755
 
-echo "done init modpath perm" >> $logfile
+echo "done init root modpath permission" >> $logfile
+
+print "  ----------------------------------------------------"
 
 tar -xf $MODPATH/install.tar.xz -C $MODPATH
 
 echo "extracted install package" >> $logfile
 
+print "  ----------------------------------------------------"
+
 set_perm_recursive "$MODPATH/temp" 0 0 0777 0755
 set_perm_recursive "$MODPATH/system" 0 0 0777 0755
 set_perm_recursive "$MODPATH/system/bin" 0 0 0777 0755 
+set_perm_recursive "$MODPATH/system/etc" 0 0 0777 0755
 set_perm_recursive "$MODPATH/system/product" 0 0 0777 0755 
 set_perm_recursive "$MODPATH/system/product/app" 0 0 0777 0755
 set_perm_recursive "$MODPATH/system/product/etc" 0 0 0777 0755
@@ -116,19 +153,9 @@ set_perm_recursive "$MODPATH/system/system_ext" 0 0 0777 0755
 set_perm_recursive "$MODPATH/system/system_ext/etc" 0 0 0777 0755
 set_perm_recursive "$MODPATH/system/system_ext/priv-app" 0 0 0777 0755
 
-echo "done init repeat perm" >> $logfile
+echo "done init all modpath permissions" >> $logfile
 
-#print "    * Running superrepack tool..."
-
-#$MODPATH/temp/superrepack /dev/block/bootdevice/by-name/super
-
-#echo "superrepack finished" >> $logfile
-
-#print ""
-
-print "   -------------------------25%------------------------"
-
-#print "    * Continuing with PLM installation..."
+print "  -------------------------25%------------------------"
 
 sqlite=$MODPATH/temp/sqlite3
 
@@ -155,23 +182,25 @@ db_edit() {
 
 echo "db_edit set" >> $logfile
 
+print "  ----------------------------------------------------"
+
 cp -f $MODPATH/temp/nlr.$ANDROIDVER.apk $MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease.apk
 
-echo "copied nlr version" >> $logfile
+echo "copied nlr version to /system/product/priv-app" >> $logfile
 
 cp -f $MODPATH/temp/wps.$ANDROIDVER.apk $MODPATH/system/system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleRelease.apk
 
-echo "copied wps version" >> $logfile
+echo "copied wps version to system/system_ext/priv-app" >> $logfile
 
 mkdir -p /sdcard/PLM/Wallpapers
 
 cp -r $MODPATH/temp/Wallpapers /sdcard/PLM/Wallpapers
 
-cp -f $MODPATH/temp/README.txt /sdcard/PLM/README.txt
+cp -f $MODPATH/temp/README_FOR_INSTALL_LOG.txt /sdcard/PLM/README_FOR_INSTALL_LOG.txt
 
 echo "moved files to /sdcard/PLM" >> $logfile
 
-print "   -------------------------50%------------------------"
+print "  -------------------------50%------------------------"
 
 sqlite "$gms" "DELETE FROM FlagOverrides WHERE packageName='com.google.android.platform.device_personalization_services'"
 db_edit "com.google.android.platform.device_personalization_services" "boolVal" "1" "Echo__smartspace_enable_battery_notification_parser" "Echo__smartspace_enable_doorbell" "Echo__smartspace_enable_earthquake_alert_predictor" "Echo__smartspace_enable_echo_settings" "Echo__smartspace_enable_light_predictor" "Echo__smartspace_enable_paired_device_predictor" "Echo__smartspace_enable_safety_check_predictor" "Echo__smartspace_enable_echo_unified_settings" "Echo__smartspace_enable_dark_launch_outlook_events" "Echo__smartspace_enable_step_predictor" "Echo__smartspace_enable_nap" "Echo__smartspace_enable_paired_device_connections" "Echo__smartspace_dedupe_fast_pair_notification" "Echo__smartspace_enable_nudge" "Echo__smartspace_enable_package_delivery" "Echo__smartspace_enable_outlook_events" "Echo__smartspace_gaia_twiddler" "Echo__smartspace_enable_eta_lyft" "Echo__smartspace_enable_sensitive_notification_twiddler"
@@ -179,22 +208,7 @@ db_edit "com.google.android.platform.launcher" "boolVal" "ENABLE_SMARTSPACE_ENHA
 
 echo "aagenhancer db edits done" >> $logfile
 
-touch "$MODPATH/system/product/priv-app/DevicePersonalizationPrebuiltPixel2021/.replace"
-touch "$MODPATH/system/product/priv-app/DeviceIntelligenceNetworkPrebuilt/.replace"
-
-echo "aagenhancer replace files done" >> $logfile
-
-[[ -z "$(dumpsys package com.google.android.as | grep versionName | grep pixel6)" ]] && rm -rf /data/app/*/*com.google.android.as*
-
-cp -f "$MODPATH/system/product/priv-app/DevicePersonalizationPrebuiltPixel2021/DevicePersonalizationPrebuiltPixel2021.apk" "/data/local/tmp"
-chmod 0777 "/data/local/tmp/DevicePersonalizationPrebuiltPixel2021.apk"
-pm install "/data/local/tmp/DevicePersonalizationPrebuiltPixel2021.apk" &>/dev/null
-
-echo "aagenhancer install asi done" >> $logfile
-
-echo "finished aagenhancer" >> $logfile
-
-print "   -------------------------75%------------------------"
+print "  ----------------------------------------------------"
 
 REMOVE=""
 
@@ -212,6 +226,8 @@ REMOVE="$(echo "$REMOVE" | tr ' ' '\n' | sort -u)"
 REPLACE="$REMOVE"
 
 echo "done set launcher removals" >> $logfile
+
+print "  -------------------------75%------------------------"
 
 rm -rf $MODPATH/install.tar.xz
 
@@ -233,13 +249,49 @@ pm enable --user 0 "com.google.android.googlequicksearchbox" &>/dev/null
 
 echo "enabled qsb" >> $logfile
 
-print "   ------------------------100%------------------------"
+print "  ----------------------------------------------------"
+
+echo "installer finished running" >> $logfile
+echo "" >> $logfile
+echo "logging modified files again:" >> $logfile
+echo "recent file changes:" >> $logfile
+echo "in /system :" >> $logfile
+echo "$($MODPATH/find /system -name "*" -cmin -5)" >> $logfile
+echo "in /data/adb :" >> $logfile
+echo "$($MODPATH/find /data/adb -name "*" -cmin -5)" >> $logfile
+echo "" >> $logfile
+
+rm -rf $MODPATH/find
+
+print "  ------------------------100%------------------------"
 
 print "    * Done!"
 print ""
 
-echo "done" >> $logfile
+echo "done and exiting" >> $logfile
 
-print "    * (!)"
-print "      PLEASE REBOOT RIGHT AWAY TO AVOID ERRORS!"
-print "      (!)"
+print "    *           (!)"
+print "      PLEASE REBOOT RIGHT AWAY"
+print "      TO AVOID POTENTIAL ERRORS!"
+print "                (!)"
+print ""
+print ""
+print ""
+print ""
+print ""
+ui_print "   **************************************************"
+ui_print "   ****************     ********     ****************"
+ui_print "   **************   ****  ****  ****   **************"
+ui_print "   *************  ******** ** ********  *************"
+ui_print "   *************  *********  *********  *************"
+ui_print "   *************  ********************  *************"
+ui_print "   **************  ******************  **************"
+ui_print "   ***************  ****************  ***************"
+ui_print "   *****************  ************  *****************"
+ui_print "   *******************  ********  *******************"
+ui_print "   **********************  **  **********************"
+ui_print "   ************************  ************************"
+ui_print "   **************************************************"
+print ""
+print ""
+print ""
